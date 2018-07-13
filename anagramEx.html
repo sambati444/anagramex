@@ -1,0 +1,26 @@
+<html>
+<head>
+
+<script src="JsonData.json"></script>
+</head>
+<body>
+</body>
+<script type='text/javascript'>
+
+let userData =JSON.parse(data);
+alert(userData)
+alert("Anagram Data : "+JSON.stringify(anagram(userData)))
+//alert('hello anagram words fro JSON Array are :\n '+JSON.stringify(anagram(['abcd', 'adbc', 'cabd', 'test', 'estt', 'ok', 'ko','hello','llheo','example','pleexam'])))
+function anagram (array) {
+    var organized = {};
+    for (var i = 0; i < array.length; i++) {
+        var word = array[i].split('').sort().join('');
+        if (!organized.hasOwnProperty(word)) {
+            organized[word] = [];
+        }
+        organized[word].push(array[i]);
+    }    
+    return organized;
+}
+</script>
+</html>
